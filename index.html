@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Viewer</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Image container -->
+<div id="image-container">
+    <img id="current-image" src="image1.jpg" alt="Image 1" onclick="nextImage()">
+</div>
+
+<script>
+    // Array of image filenames
+    const images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
+
+    // Index to keep track of the current image
+    let currentIndex = 0;
+
+    // Function to show the next image
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        document.getElementById('current-image').src = images[currentIndex];
+    }
+
+    // Update the onclick event to call the nextImage function
+    document.getElementById('current-image').onclick = nextImage;
+</script>
+
+</body>
+</html>
+
